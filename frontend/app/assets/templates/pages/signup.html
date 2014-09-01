@@ -1,0 +1,52 @@
+<ion-view title="Проверка номера телефона" class="noteCard" ng-controller="SignUpCtrl">
+    <img src="img/noteCard.png" class="noteCard">
+
+
+    <ion-content>
+
+
+        <div  style="padding-top: 20%; margin-left: 40%">
+           <img ng-src="img/key.png" class="keyimg">
+        </div>
+
+        <!--
+        <div class="row">
+            <div class="col col-25"></div>
+            <img ng-src="img/key.png" class="col keyimg">
+            <div class="col col-25"></div>
+        </div>
+        -->
+
+        <div class="row">
+         <div class="col col-25"></div>
+
+         <div class="col col-50">
+
+             <div class="row signup">
+                <div class="col col-25" ng-repeat="input in inputs">
+                    <div class="text-center white masterpass" ng-show="!key.value[input]">&nbsp;</div>
+                    <div class="text-center white masterpass" ng-show="key.value[input] !== undefined">●</div>
+                </div>
+                 <i ng-show="showAlert" class="icon ion-alert-circled" style="font-size: 200%; float: left; position: relative"></i>
+             </div>
+         </div>
+
+         <div class="col col-25"></div>
+
+        </div>
+
+        <div class="keyboard text-center">
+            <span ng-if="!globalpass" >It will be yor master password!</span>
+            <span ng-if="showAlert">Wrong password!</span>
+            <div class="shadow">
+                <div class="button-bar" ng-repeat="nums in keyboard">
+                    <a class="button button-stable " ng-repeat="num in nums" ng-click="checkValue(num)">{{num}}</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>

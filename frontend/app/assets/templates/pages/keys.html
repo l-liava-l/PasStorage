@@ -1,0 +1,40 @@
+<ion-view title="" class="paper">
+
+
+    <ion-footer-bar align-title="left" class="bar-light">
+        <div class="button-bar">
+            <button class="button button-positive" ng-click="new()">New</button>
+        </div>
+
+
+    </ion-footer-bar>
+  <ion-content padding="true" >
+<div>
+      <div class="list" ng-repeat="(id, group) in keyStorage track by $index">
+
+          <div class="item item-divider  item-icon-right">
+             {{group.name}}
+              <i class="icon ion-ios7-more" ng-click="edit(group, $index)"></i>
+          </div>
+
+          <div ng-repeat="account in group.accs track by $index">
+                  <div class="item item-button-right" ng-show="!AccountModel[id + '' +  $index]">
+                      {{account.alias}}
+                      <button class="button button-icon icon ion-ios7-eye-outline" ng-click="showPass(id + '' + $index)"></button>
+                  </div>
+                  <div class="item item-button-right" ng-show="AccountModel[id + '' +  $index]">
+                      {{account.password}}
+                      <button class="button button-icon icon ion-ios7-eye" ng-click="hidePass(id + '' + $index)"></button>
+                  </div>
+              </div>
+      </div>
+       <!--
+      <div class="row" ng-if="keyStorage.length === 0 ">
+          <img class="col" src="img/cloud.png">
+      </div>
+        -->
+
+</div>
+
+  </ion-content>
+</ion-view>

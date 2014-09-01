@@ -1,0 +1,59 @@
+<ion-side-menus >
+  <!-- Center content -->
+  <ion-side-menu-content drag-content="true">
+
+    <ion-nav-view animation="slide-left-right-ios7" name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- Left menu -->
+  <ion-side-menu side="right" class="menuBack">
+    <header class="bar bar-header nopadding">
+        <div class="item item-input-inset">
+            <!--<i class="icon icon-left ion-social-twitter"></i>-->
+            <label class="item-input-wrapper margin-left-10">
+                <input type="text" placeholder="Group" ng-model="editGroup.name">
+            </label>
+        </div>
+    </header>
+      <ion-footer-bar align-title="left" class="bar-light">
+
+          <div class="button-bar">
+              <button class="button icon-left ion-checkmark-round" ng-click="save()">Save</button>
+              <button class="button button-positive icon-left ion-plus-round" ng-click="addAccount()">Add</button>
+          </div>
+
+      </ion-footer-bar>
+
+    <ion-content class="has-header">
+
+        <div class="list margin-top-10" ng-repeat="account in editGroup.accs track by $index">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Login or pass name" ng-model="account.alias">
+                </label>
+                <button class="button button-small bordernone" ng-click="del($index)">
+                    <i class="icon ion-close-round"></i>
+                </button>
+
+
+
+            </div>
+            <div class="item item-input-inset row">
+                <button class="button button-small col col-25" ng-click="newPass(account)">
+                    Create!
+                </button>
+                <label class="item-input-wrapper margin-left col" style="position: relative">
+                    <input type="text" placeholder="Password" ng-model="account.password"  ng-change="checkPass(account)">
+                </label>
+                <label class="margin-left item-input-wrapper col-10 {{account.passDifcolor}}">
+                    <span class="white-font"><i class="icon icon-right {{account.passDificon}}"></i></span>
+                </label>
+
+            </div>
+        </div>
+
+
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>
