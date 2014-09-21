@@ -1,6 +1,5 @@
 App.controller 'AddKeyCtrl', ($scope, storage, $ionicSideMenuDelegate) ->
 
-
   $scope.keyStorage = storage.session.keyStorage ?= []
 
   $scope.editGroup = storage.session.editGroup ?= {
@@ -16,8 +15,6 @@ App.controller 'AddKeyCtrl', ($scope, storage, $ionicSideMenuDelegate) ->
 
   $scope.del = (id) ->
     $scope.editGroup.accs.splice(id , 1)
-
-
 
   $scope.reset = () ->
     $scope.editGroup = {
@@ -62,10 +59,6 @@ App.controller 'AddKeyCtrl', ($scope, storage, $ionicSideMenuDelegate) ->
 
     storage.saveToLocal('keyStorage', $scope.keyStorage)
     $ionicSideMenuDelegate.toggleRight()
-
-
-
-
 
   randomWord = (n) ->
     Math.random().toString(36).slice(2, 2 + Math.max(1, Math.min(n, 10)) )
